@@ -12,12 +12,30 @@ En PowerShell, desde esta carpeta `web`:
 
 Eso copia `foto1.jpg` → `assets/photo.jpg` y el PDF corporativo → `assets/JFC-Consultoria-Estrategica.pdf` desde la carpeta padre `Consultoria`.
 
+## Subir a GitHub (push)
+
+Desde esta carpeta `web`, en PowerShell:
+
+**Opción A — GitHub CLI** (instalá [GitHub CLI](https://cli.github.com/) y ejecutá `gh auth login` una vez):
+
+```powershell
+.\push-to-github.ps1 -CreateWithGh -RepoName "jfc-consultoria-portfolio"
+```
+
+Eso crea el repo público, añade `origin` y hace `push` de la rama `main`.
+
+**Opción B — Repo ya creado** (vacío, sin README en GitHub):
+
+```powershell
+.\push-to-github.ps1 -RemoteUrl "https://github.com/TU_USUARIO/TU_REPO.git"
+```
+
+(Si preferís SSH: `git@github.com:USUARIO/REPO.git`.)
+
 ## GitHub Pages
 
-1. Creá un repositorio vacío en GitHub (por ejemplo `jfc-portfolio`).
-2. Subí **solo el contenido de esta carpeta `web`** como raíz del repo (no la carpeta `Consultoria` completa, a menos que elijas `web` como subcarpeta; lo más simple es que el repo sea solo este sitio).
-3. En el repo: **Settings → Pages → Build and deployment → Branch: `main`**, carpeta **`/ (root)`**.
-4. El sitio quedará en `https://<usuario>.github.io/<repo>/`.
+1. Tras el push, en el repo: **Settings → Pages → Build and deployment → Branch: `main`**, carpeta **`/ (root)`**.
+2. El sitio quedará en `https://<usuario>.github.io/<repo>/`.
 
 Archivo **`.nojekyll`** evita que Jekyll procese el sitio (HTML puro).
 
