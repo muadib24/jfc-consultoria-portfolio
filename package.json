@@ -1,0 +1,10 @@
+{
+  "name": "jfc-consultoria-portfolio",
+  "version": "1.0.0",
+  "description": "JFC Consultoría Estratégica - Portfolio website for Javier Colladon",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  }
+}
